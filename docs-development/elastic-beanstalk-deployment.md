@@ -161,8 +161,6 @@ ALLOWED_HOSTS += [
 
 ## App Deployment
 
-TODO: Add details about setting eb up for the app, and how to deploy - mention node_modules being a nightmare
-
 When you are ready to deploy it, you'll need to install `awsebcli`. To do this use the command:
 
 ```
@@ -205,3 +203,10 @@ Once the environment has been created, you'll need to go to the database securit
 !!! warning "Security Groups and VPCs"
 
     You will need to make sure that the database is deployed in a VPC which the elastic beanstalk instance can access. If it isn't, you won't be able to add the EB security group to the DB security group.
+
+Finally, to deploy the app, ensure that you are in the app folder, and use the command `eb deploy`.
+
+```zsh
+cd app
+eb deploy
+``` 

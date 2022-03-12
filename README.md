@@ -26,7 +26,7 @@ mkdocs build
 
 ## Development
 
-Once you have set up the relevant environment variables (as described in [App Settings](/app-settings.html#environment-variables)), to run the development server, you'll need to run
+Once you have set up the relevant environment variables (as described in [App Settings](https://glsdown.github.io/template-django-react-app/app-settings.html#environment-variables)), to run the development server, you'll need to run
 
 ```zsh
 python app/manage.py runserver

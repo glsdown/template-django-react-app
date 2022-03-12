@@ -94,7 +94,7 @@ Metadata about the frontend application can be found in the `package.json` file.
 
 ### Core Settings
 
-The majority of settings are handled in the `app/app/settings.py` file. These are the settings taht you should look out for.
+The majority of settings are handled in the `app/app/settings.py` file. These are the settings that you should look out for.
 
 #### Environment Variables
 
