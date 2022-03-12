@@ -1,0 +1,80 @@
+site_name: Example Django and React Application
+repo_url: https://github.com/glsdown/template-django-react-app
+edit_uri: edit/main/docs
+site_description: Documentation for how to create a simple application built using React and Django Rest Framework.
+site_author: Gemma Down
+dev_addr: '127.0.0.1:8001'
+use_directory_urls: false
+copyright: Copyright &copy; 2022
+docs_dir: docs-development
+site_dir: docs-site
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.tabbed
+plugins:
+  - search
+  - git-revision-date
+theme:
+  name: material
+  language: en
+  palette:
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to dark mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      toggle:
+        icon: material/lightbulb
+        name: Switch to light mode
+  font:
+    text: Montserrat
+    code: Roboto Mono
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+extra:
+  homepage: https://github.com/glsdown
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/
+      name: Find us on Twitter
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/
+      name: Find us on LinkedIn
+    - icon: fontawesome/brands/github
+      link: https://github.com/
+      name: Find us on Github
+  generator: false
+extra_css:
+  - stylesheets/extra.css
+nav:
+  - Overview: 'index.md'
+  - Customisation:
+      - App Settings: 'app-settings.md'
+      - Adding Additional Features: 'additional-features.md'
+      - Stylesheets: 'styling.md'
+  - Additional Settings:
+      - S3 Resource Storage: 's3-resource-storage.md'
+      - Elastic Beanstalk Deployment: 'elastic-beanstalk-deployment.md'
+  - External Tutorials:
+      - Original Tutorial: 'https://www.youtube.com/watch?v=Uyei2iDA4Hs'
+      - REST APIs: 'https://realpython.com/api-integration-in-python/'
+      - Full Stack Open: 'https://fullstackopen.com/en/'
+      - Django Quickstart: 'https://www.djangoproject.com/start/'
+      - Django Rest Framework (DRF): 'https://www.django-rest-framework.org/tutorial/quickstart/'
+      - React Quickstart: 'https://reactjs.org/tutorial/tutorial.html'
+      - Redux Toolkit: 'https://www.learnwithjason.dev/let-s-learn-modern-redux'
+      - Bootstrap 5 Documentation: 'https://getbootstrap.com/docs/5.0/getting-started/introduction/'
+      - React-Bootstrap: 'https://react-bootstrap.github.io/getting-started/introduction/'
