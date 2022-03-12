@@ -33,7 +33,7 @@ theme:
         icon: material/lightbulb
         name: Switch to light mode
   font:
-    text: Montserrat
+    text: Raleway
     code: Roboto Mono
   logo: assets/logo.png
   favicon: assets/favicon.ico
@@ -45,7 +45,7 @@ theme:
     - navigation.top
     - search.suggest
 extra:
-  homepage: https://github.com/glsdown
+  homepage: https://glsdown.github.io/template-django-react-app/
   social:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/

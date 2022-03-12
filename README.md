@@ -4,13 +4,21 @@ This is a template application built using Django and React. It is based on the 
 
 ## Documentation
 
-Documentation is included in this repository. To view it, you will need to run
+Documentation is included in this repository. It can be viewed using [GitHub pages](https://glsdown.github.io/template-django-react-app/).
+
+To deploy it, simply run:
+
+```zsh
+mkdocs gh-deploy
+```
+
+Alternatively, prior to deployment, to view it locally, you can run
 
 ```zsh
 mkdocs serve
 ```
 
-To build the documentation into a static website, you can do so by running:
+To build the documentation into a static website for hosting elsewhere, you can do so by running:
 
 ```zsh
 mkdocs build
