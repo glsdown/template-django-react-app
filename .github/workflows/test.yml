@@ -1,0 +1,46 @@
+name: Test Django
+
+on: [push, pull_request]
+
+jobs:
+  test-django:
+    name: Run Django Tests
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:12.3-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --mount type=tmpfs,destination=/var/lib/postgresql/data 
+          --health-cmd pg_isready 
+          --health-interval 10s 
+          --health-timeout 5s 
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: pip install -r app/requirements.txt
+      - name: Install sqlalchemy
+        run: pip install sqlalchemy
+      - name: Install psycopg2
+        run: pip install psycopg2 psycopg2-binary
+      - name: Create required schemas
+        run: python database-setup.py
+      - name: Run tests
+        run: python app/manage.py test app/
+        env:
+          ENVIRONMENT_DESCRIPTION: TEST
+          DATABASE_NAME: postgres
+          DATABASE_USER: postgres
+          DATABASE_PASSWORD: postgres
+          DATABASE_HOST: localhost
+          DATABASE_PORT: 5432
