@@ -1,0 +1,27 @@
+# Formatting folder
+.nox
+
+# Pyenv
+.python-version
+.vscode
+
+# Database
+*.sqlite3
+
+# Emails
+sent_emails
+
+# npm installed modules
+node_modules
+
+# Generated static files
+app/static
+app/frontend/static/frontend/*
+docs-site/
+
+# python artifacts
+__pycache__
+*.pyc
+*.so
+*.egg-info
+.ipynb_checkpoints
