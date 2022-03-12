@@ -1,0 +1,9 @@
+{% autoescape off %}
+Hi {{ user.first_name }} {{user.last_name }},
+
+Thanks for signing up to the Portal. Please click on the link below to confirm your registration:
+
+http://{{ domain }}/#/activate-account/{{uid}}/{{token}} 
+
+
+{% endautoescape %}

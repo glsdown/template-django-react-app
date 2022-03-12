@@ -1,0 +1,19 @@
+{% extends 'base_message.html' %}
+{% block title %}
+Confirm registration
+{% endblock %}
+{% block preview %}
+Please confirm your email to get access to the Portal.
+{% endblock %}
+{% block content %}
+
+  <p>Hi {{ user.first_name }} {{user.last_name }},</p>
+  Thanks for signing up to the Portal.</p>
+  
+  <p>Please click on the link below to confirm your registration:</p>
+  
+  <!-- prettier-ignore -->{% autoescape off %}
+  <p>http://{{ domain }}/#/activate-account/{{uid}}/{{token}}</p>
+  {% endautoescape %}
+
+{% endblock %}
