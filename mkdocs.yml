@@ -47,15 +47,12 @@ theme:
 extra:
   homepage: https://glsdown.github.io/template-django-react-app/
   social:
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/
-      name: Find us on Twitter
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/
-      name: Find us on LinkedIn
+      link: https://www.linkedin.com/in/gemma-down-00992083/
+      name: LinkedIn
     - icon: fontawesome/brands/github
-      link: https://github.com/
-      name: Find us on Github
+      link: https://github.com/glsdown/
+      name: Github
   generator: false
 extra_css:
   - stylesheets/extra.css
