@@ -1,0 +1,31 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "airbnb/hooks", "prettier"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier", "react"],
+  "rules": {
+    // Allow .js file extensions
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    // Allow props spreading
+    "react/jsx-props-no-spreading": "off",
+    // Allow Prettier to throw errors via ESLint
+    "prettier/prettier": "error",
+    // Ignore prop types
+    "react/prop-types": "off",
+    // Allow nested ternary
+    "no-nested-ternary": "off",
+    // Allow redux to edit the state parameter
+    "no-param-reassign": ["error", { "props": false }],
+    // Allow non-default exports
+    "import/prefer-default-export": "off"
+  }
+}

@@ -1,0 +1,29 @@
+name: Format and Lint
+
+on: [push, pull_request]
+
+jobs:
+  python:
+    name: Lint .py Files
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+      - name: Install nox
+        run: python3.9 -m pip install -U nox
+      - name: Lint Python source
+        run: nox -s lint
+  js:
+    name: Lint .js Files
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup node
+        uses: actions/setup-node@v1
+      - name: Install node packages
+        run: npm ci --include=dev
+      - name: Lint js files
+        run: npm run lint

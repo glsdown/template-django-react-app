@@ -1,0 +1,20 @@
+{
+  "printWidth": 80,
+  "trailingComma": "all",
+  "jsxBracketSameLine": true,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "bracketSpacing": true,
+  "importOrder": ["react", "^(?!react)\\w+$", "^[./]"],
+  "importOrderSeparation": true,
+  "semi": true,
+  "experimentalBabelParserPluginsList": ["jsx", "typescript"],
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ]
+}
