@@ -1,0 +1,6 @@
+django
+djangorestframework
+djangorestframework-camel-case
+django-filter
+django-rest-knox
+django-rest-passwordreset
