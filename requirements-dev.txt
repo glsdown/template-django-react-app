@@ -1,0 +1,6 @@
+invoke
+mkdocs
+mkdocs-git-revision-date-plugin
+mkdocs-material
+nox
+pip-tools
