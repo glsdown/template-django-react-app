@@ -15,7 +15,7 @@ from sqlalchemy.orm import sessionmaker
 
 
 # List of schemas that need to be created
-REQUIRED_SCHEMAS = ["accounts", "data_schema"]
+REQUIRED_SCHEMAS = ["application"]
 
 
 def create_schemas(engine):

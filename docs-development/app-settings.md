@@ -181,7 +181,22 @@ DATABASES = {
 
 ##### PostgresSQL Schemas
 
-When using postgresSQL, you probably want to make use of schemas. This is possible to do, but does have a couple of caveats. The easiest way is to make use of the `db_table` setting within the model `Meta` class:
+When using postgresSQL, you probably want to make use of schemas. This is possible to do, but does have a couple of caveats. In the `settings.py` file, there is a default schema included:
+
+```python hl_lines="7"
+# Use with Postgres to specify a default schema
+DEFAULT_SCHEMA = "application"
+
+DATABASES = {
+    "default": {
+        ...
+        "OPTIONS": {"options": f"-c search_path={DEFAULT_SCHEMA},public"},
+        ...
+    }
+}
+```
+
+If you want specific models in custom schemas, the easiest way is to make use of the `db_table` setting within the model `Meta` class:
 
 ```python hl_lines="8"
 # accounts/models.py
@@ -206,7 +221,7 @@ When building this table, Django won't create the schemas for you - these need t
 python database-setup.py initial-setup
 ```
 
-Additionally, these will need to be included in the template database used when testing (as defined within the DATABASES setting).
+Additionally, these will need to be included in the template database used when testing (as defined within the DATABASES setting). If you use the `database-setup.py` script to build the template database, it will add the schemas for you.
 
 ```python hl_lines="7"
 # app/settings.py
