@@ -22,7 +22,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
+        with:
+          node-version: '23.x'
       - name: Install node packages
         run: npm ci --include=dev
       - name: Lint js files
