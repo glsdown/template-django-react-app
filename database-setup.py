@@ -103,7 +103,6 @@ if __name__ == "__main__":
     db_host = os.environ.get("DATABASE_HOST", "localhost")
     db_port = os.environ.get("DATABASE_PORT", "5432")
 
-    test_db_name = "test_development"
     test_db_template_name = "template_test"
 
     main_connection_string = (
