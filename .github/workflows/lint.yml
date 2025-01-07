@@ -1,6 +1,6 @@
 name: Format and Lint
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   python:
