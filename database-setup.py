@@ -91,8 +91,8 @@ def create_test_template(
     conn.execute(text("commit"))
     conn.execute(
         text(
-            f"ALTER DATABASE {test_db_template_name} allow_connections = FALSE "
-            "is_template=TRUE;"
+            f"ALTER DATABASE {test_db_template_name} "
+            "allow_connections = FALSE is_template=TRUE;"
         )
     )
     conn.close()
