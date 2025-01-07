@@ -25,3 +25,6 @@ __pycache__
 *.so
 *.egg-info
 .ipynb_checkpoints
+
+# Secrets
+.envrc

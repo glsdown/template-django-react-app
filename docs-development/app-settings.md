@@ -102,20 +102,23 @@ The vast majority of the settings are controlled using environment variables, so
 
 === "Local - Mac"
 
-    If you are running it locally, you will need to export them to your current environment. This will create a temporary environment variable. It will only exist for that terminal session, but is available immediately.
+    If you are running it locally, you will need to export them to your current environment. I recommend using [direnv](https://direnv.net/) to manage these. Once you have it installed, you can use the `.envrc.example` file as a template to create your own `.envrc` file, and use direnv to automatically load them using `direnv allow .`. 
+
+    Alternatively, you can just export them for each terminal session.
 
     ```zsh
-    export ENVIRONMENT_DESCRIPTION = 'PROD'
-    export SECRET_KEY = 'secret-generated-key-here'
-    export DATABASE_NAME = 'database-name-here'
-    export DATABASE_USER = 'database-user-here'
-    export DATABASE_PASSWORD = 'database-user-password-here'
-    export DATABASE_HOST = 'database-host-here'
-    export DATABASE_PORT = 'database-port-here'
-    export MAIL_SERVER = 'mail-server-here'
-    export MAIL_PORT = 'mail-port-here'
-    export MAIL_USERNAME = 'mail-username-here'
-    export MAIL_PASSWORD = 'mail-password-here'
+    export ENVIRONMENT_DESCRIPTION='PROD' # PROD or DEV or TEST
+    export SECRET_KEY='secret-generated-key-here'
+    export DATABASE_NAME='database-name-here'
+    export DATABASE_USER='database-user-here'
+    export DATABASE_PASSWORD='database-user-password-here'
+    export DATABASE_HOST='database-host-here'
+    export DATABASE_PORT='database-port-here'
+    # Only required if ENVIRONMENT_DESCRIPTON='PROD'
+    export MAIL_SERVER='mail-server-here'
+    export MAIL_PORT='mail-port-here'
+    export MAIL_USERNAME='mail-username-here'
+    export MAIL_PASSWORD='mail-password-here'
     ```
 
 === "Local - Windows"
@@ -170,7 +173,7 @@ You need to add your own production database backend. The engines available are:
 ```python hl_lines="3"
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
         ...
     }
 }
