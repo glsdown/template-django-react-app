@@ -6,23 +6,10 @@ jobs:
   test-django:
     name: Run Django Tests
     runs-on: ubuntu-latest
-    services:
-      db:
-        image: 17.2-alpine
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: postgres
-        ports:
-          - 5432:5432
-        options: >-
-          --mount type=tmpfs,destination=/var/lib/postgresql/data 
-          --health-cmd pg_isready 
-          --health-interval 10s 
-          --health-timeout 5s 
-          --health-retries 5
     steps:
-      - uses: actions/checkout@v1
+      - uses: ikalnytskyi/action-setup-postgres@v7
+        with:
+          postgres-version: '17'
       - name: Set up Python 3.12
         uses: actions/setup-python@v1
         with:
