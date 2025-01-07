@@ -166,9 +166,11 @@ WSGI_APPLICATION = "app.wsgi.application"
 DATABASES = {
     "default": {
         # "ENGINE": ,
-        "ENGINE": "django.db.backends.postgresql"
-        if ENVIRONMENT_DESCRIPTION == "TEST"
-        else "django.db.backends.sqlite3",
+        "ENGINE": (
+            "django.db.backends.postgresql"
+            if ENVIRONMENT_DESCRIPTION == "TEST"
+            else "django.db.backends.sqlite3"
+        ),
         "NAME": os.environ.get("DATABASE_NAME", BASE_DIR / "db.sqlite3"),
         "USER": os.environ.get("DATABASE_USER", ""),
         "PASSWORD": os.environ.get("DATABASE_PASSWORD", ""),
@@ -178,9 +180,11 @@ DATABASES = {
         "CONN_MAX_AGE": 0,
         # Test settings
         "TEST": {
-            "NAME": "test_development"
-            if ENVIRONMENT_DESCRIPTION == "TEST"
-            else BASE_DIR / "test_development.sqlite3"
+            "NAME": (
+                "test_development"
+                if ENVIRONMENT_DESCRIPTION == "TEST"
+                else BASE_DIR / "test_development.sqlite3"
+            )
         },
     }
 }
@@ -214,10 +218,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/London"
 USE_I18N = True
 USE_L10N = True
-USE_TZ = True
+USE_TZ = False
 
 # Login/logout redirect URLs - the # is because we are using the HashRouter
 # within React
