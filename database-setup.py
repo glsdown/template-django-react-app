@@ -2,7 +2,7 @@ import os
 import sys
 from contextlib import contextmanager
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 
 # This script is used by github actions to create the schemas required
@@ -44,7 +44,7 @@ def create_schemas(engine):
         for schema in REQUIRED_SCHEMAS:
             print(f"Creating schema {schema}")
             session.connection().execute(
-                f"CREATE SCHEMA IF NOT EXISTS {schema}"
+                text(f"CREATE SCHEMA IF NOT EXISTS {schema}")
             )
 
 
@@ -62,9 +62,9 @@ def create_test_template(
     # to fail
     try:
         conn.execute(
-            "commit"
+            text("commit")
         )  # Create database doesn't work inside a transaction
-        conn.execute(f"CREATE DATABASE {test_db_template_name}")
+        conn.execute(text(f"CREATE DATABASE {test_db_template_name}"))
     finally:
         conn.close()
 
@@ -79,17 +79,21 @@ def create_test_template(
     # Drop all connections to the test database
     print("Dropping connections")
     engine.connect().execute(
-        "select pg_terminate_backend(pid) from pg_stat_activity where "
-        f"datname='{test_db_template_name}';"
+        text(
+            "select pg_terminate_backend(pid) from pg_stat_activity where "
+            f"datname='{test_db_template_name}';"
+        )
     )
 
     # Convert the test database to a template with no connections
     print("Converting to template")
     conn = engine.connect()
-    conn.execute("commit")
+    conn.execute(text("commit"))
     conn.execute(
-        f"ALTER DATABASE {test_db_template_name} allow_connections = FALSE "
-        "is_template=TRUE;"
+        text(
+            f"ALTER DATABASE {test_db_template_name} allow_connections = FALSE "
+            "is_template=TRUE;"
+        )
     )
     conn.close()
 
