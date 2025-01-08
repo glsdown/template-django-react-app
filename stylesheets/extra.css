@@ -1,0 +1,10 @@
+:root {
+  --md-primary-fg-color: #23395d;
+
+  --md-accent-fg-color: #4b7aa1;
+}
+
+[data-md-color-scheme='slate'] {
+  /* Override the link style for dark theme */
+  --md-typeset-a-color: #adf;
+}
