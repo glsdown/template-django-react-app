@@ -7,11 +7,12 @@ jobs:
     name: Run Django Tests
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: ikalnytskyi/action-setup-postgres@v7
         with:
           postgres-version: '17'
       - name: Set up Python 3.12
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v5
         with:
           python-version: 3.12
       - name: Install dependencies

@@ -7,9 +7,9 @@ jobs:
     name: Lint .py Files
     runs-on: 'ubuntu-latest'
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Set up Python 3.12
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v5
         with:
           python-version: 3.12
       - name: Install nox
@@ -20,7 +20,7 @@ jobs:
     name: Lint .js Files
     runs-on: 'ubuntu-latest'
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Setup node
         uses: actions/setup-node@v4
         with:
