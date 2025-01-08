@@ -26,7 +26,71 @@ mkdocs build
 
 ## Development
 
-Once you have set up the relevant environment variables (as described in [App Settings](https://glsdown.github.io/template-django-react-app/app-settings.html#environment-variables)), to run the development server, you'll need to run
+### Installation
+
+First you need to install the relevant packages. To do this ensure you have the following installed:
+
+- [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- [python](https://www.python.org/downloads/) - I recommend using [pyenv](https://github.com/pyenv/pyenv) and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv) for python installation and virtual environment setup
+- [direnv](https://direnv.net/docs/installation.html) for environment variable management
+
+Once you have installed these, you should then install the required packages for the app:
+
+```zsh
+npm i
+pip install -r app/requirements.txt
+```
+
+### Environment Variables
+
+Then you need to set up the relevant environment variables (as described in [App Settings](https://glsdown.github.io/template-django-react-app/app-settings.html#environment-variables)). If you haven't yet set up a database, you can do so in the next section. Set up your `.envrc` file using the `.envrc.example` file and run the following:
+
+```zsh
+direnv allow .
+```
+
+### Optional - Create a Postgres Database for local development
+
+You can create a local postgresql database for development. For example using homebrew you would run:
+
+```zsh
+brew install postgresql
+brew services start postgresql@14
+psql postgresql
+```
+
+Once you have a server up and running, you should create the database user. The details should be the same as those you used in the `.envrc` file.
+
+```sql
+create role svc_django with login superuser password 'P@ssw0rd';
+```
+
+If you want to connect to a database (e.g. `my_database`) on the command line using psql you would run:
+
+```sql
+\c my_database svc_django;
+```
+
+However, I recommend downloading [DBeaver](https://dbeaver.io/download/), which is a free tool for connecting to databases.
+
+Once you have your server up and running, you should initialise it using the database setup script by running the following. Make sure to customise it to include the schemas you want creating.
+
+```zsh
+python database-setup.py initial-setup
+```
+
+### Create the tables
+
+The first time you run the app, you'll need to create all the models. You can do so using:
+
+```zsh
+python app/manage.py makemigrations
+python app/manage.py migrate
+```
+
+### Viewing the application
+
+To run the development server, you'll need to run
 
 ```zsh
 python app/manage.py runserver

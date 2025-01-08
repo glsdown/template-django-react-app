@@ -1,0 +1,12 @@
+export ENVIRONMENT_DESCRIPTION='PROD' # 'DEV', 'TEST' or 'PROD'
+export SECRET_KEY='secret-generated-key-here'
+export DATABASE_NAME='database-name-here'
+export DATABASE_USER='database-user-here'
+export DATABASE_PASSWORD='database-user-password-here'
+export DATABASE_HOST='database-host-here'
+export DATABASE_PORT='database-port-here'
+# Only required if environment is PROD
+export MAIL_SERVER='mail-server-here'
+export MAIL_PORT='mail-port-here'
+export MAIL_USERNAME='mail-username-here'
+export MAIL_PASSWORD='mail-password-here'
